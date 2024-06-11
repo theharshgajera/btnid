@@ -1,0 +1,61 @@
+{%load static %}
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Employee Record Management System</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+        <style>
+            .list-group-item{
+                padding:8px !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-2 p-0">
+                    <center><img src="{% static 'images/icon.png'%}" width = "180" height="100" ></center>
+                    <div class="list-group">
+                        <a href="/emp_home" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/emp_home/' %}active{% endif %}">Dashboard</a>
+                        <a href="/profile" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/profile/' %}active{% endif %}">Profile</a>
+                        <a href="{% url 'myexperience' %}" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/myexperience' %}active{% endif %}">My Experience</a>
+                        <a href="{% url 'edit_myexperience' %}" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/edit_myexperience' %}active{% endif %}">Edit My Experience</a>
+                        <a href="{% url 'myeducation' %}" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/myeducation' %}active{% endif %}">My Education</a>
+                        <a href="{% url 'edit_myeducation' %}" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/edit_myeducation' %}active{% endif %}">Edit My Education</a>
+                        
+                        <a href="{% url 'document_upload' %}" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/document_upload' %}active{% endif %}">Upload Documents</a>
+                        <a href="{% url 'signed_contract_upload' %}" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/signed_contract_upload' %}active{% endif %}">Upload Signed Contract</a>
+
+                        <a href="{% url 'change_password' %}" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/change_password' %}active{% endif %}">Change Password</a>
+
+                        <a href="/logout" class="list-group-item list-group-item-warning list-group-item-action">Logout</a>
+                    </div>
+                </div>
+                <div class="col-sm-10 p-0">
+                    <div class="container-fluid p-2">
+                        <h5 class="p-3 text-center font-weight-bold" style="border-bottom: 2px solid green;border-top: 2px solid green;">Employee Record Management System</h5>
+                        <div class="card shadow" style="min-height: 89vh;">
+                            <div class="card-body">
+                                {% block main %}
+                                {% endblock %}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </body>
+</html>
+

@@ -1,0 +1,19 @@
+{% extends 'emp_base.html' %}
+{% block main %}
+<div class="card shadow m-2">
+    <div class="card-body">
+        <h5 class="p-2" style="border-bottom: 2px solid orange;">Upload Documents</h5>
+        <div class="container-fluid">
+            {% if error %}
+                <div class="alert alert-danger">{{ error }}</div>
+            {% else %}
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Upload" class="btn btn-primary">
+                </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

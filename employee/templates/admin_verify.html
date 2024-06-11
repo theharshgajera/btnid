@@ -1,0 +1,41 @@
+{% extends 'admin_base.html' %}
+{% block main %}
+<div class="card shadow">
+    <div class="card-body">
+        <h5 class="p-2" style="border-bottom: 2px solid orange;">Pending Employee Details</h5>
+        <div class="container-fluid">
+            <table class="table table-bordered table-sm" id="example">
+                <thead>
+                    <tr>
+                        <th>S No.</th>
+                        <th>Emp_Code</th>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>Email</th>
+                        <th>Contact</th>
+                        <th>JoiningDate</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in employees %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ i.empcode }}</td>
+                        <td>{{ i.user.first_name }}</td>
+                        <td>{{ i.user.last_name }}</td>
+                        <td>{{ i.user.username }}</td>
+                        <td>{{ i.contact }}</td>
+                        <td>{{ i.joiningdate }}</td>
+                        <td>
+                            <a href="{% url 'accept_employee' i.id %}" class="btn btn-success btn-sm">Accept</a>
+                            <a href="{% url 'reject_employee' i.id %}" class="btn btn-danger btn-sm">Reject</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

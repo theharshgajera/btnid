@@ -1,0 +1,208 @@
+{% extends 'admin_base.html' %}
+{% block main %}
+
+<div class="card shadow m-2">
+    <div class="card-body">
+        <h5 class="p-2 text-danger" style="border-bottom: 2px solid orange;">Edit Employee Profile</h5>
+        <div class="container-fluid">
+            <form method="POST" name="edit_profile">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" name="firstname" placeholder="Enter First Name" class="form-control" value="{{ employee.user.first_name }}" pattern="[A-Za-z]+">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" name="lastname" placeholder="Enter Last Name" class="form-control" value="{{ employee.user.last_name }}" pattern="[A-Za-z]+">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Employee Code</label>
+                            <input type="text" name="empcode" value="{{ employee.empcode }}" placeholder="Employee Code" required class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Address</label>
+                            <input type="text" name="address" placeholder="Enter Address" required class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Tehsil</label>
+                            <input type="text" name="tehsil" value="{{ employee.tehsil }}" placeholder="Enter Tehsil" required class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>District</label>
+                            <select name="district" class="form-control" required>
+                                <option value="" disabled>Select District</option>
+                                <option value="AHMEDABAD" {% if employee.district == "AHMEDABAD" %}selected{% endif %}>AHMEDABAD</option>
+                                <option value="AMRELI" {% if employee.district == "AMRELI" %}selected{% endif %}>AMRELI</option>
+                                <option value="ANAND" {% if employee.district == "ANAND" %}selected{% endif %}>ANAND</option>
+                                <option value="ARVALLI" {% if employee.district == "ARVALLI" %}selected{% endif %}>ARVALLI</option>
+                                <option value="BANASKANTHA" {% if employee.district == "BANASKANTHA" %}selected{% endif %}>BANASKANTHA</option>
+                                <option value="BHARUCH" {% if employee.district == "BHARUCH" %}selected{% endif %}>BHARUCH</option>
+                                <option value="BHAVNAGAR" {% if employee.district == "BHAVNAGAR" %}selected{% endif %}>BHAVNAGAR</option>
+                                <option value="BOTAD" {% if employee.district == "BOTAD" %}selected{% endif %}>BOTAD</option>
+                                <option value="CHHOTA UDAIPUR" {% if employee.district == "CHHOTA UDAIPUR" %}selected{% endif %}>CHHOTA UDAIPUR</option>
+                                <option value="DAHOD" {% if employee.district == "DAHOD" %}selected{% endif %}>DAHOD</option>
+                                <option value="DANG" {% if employee.district == "DANG" %}selected{% endif %}>DANG</option>
+                                <option value="DEVBHOOMI DWARKA" {% if employee.district == "DEVBHOOMI DWARKA" %}selected{% endif %}>DEVBHOOMI DWARKA</option>
+                                <option value="GANDHINAGAR" {% if employee.district == "GANDHINAGAR" %}selected{% endif %}>GANDHINAGAR</option>
+                                <option value="GIR SOMNATH" {% if employee.district == "GIR SOMNATH" %}selected{% endif %}>GIR SOMNATH</option>
+                                <option value="JAMNAGAR" {% if employee.district == "JAMNAGAR" %}selected{% endif %}>JAMNAGAR</option>
+                                <option value="JUNAGADH" {% if employee.district == "JUNAGADH" %}selected{% endif %}>JUNAGADH</option>
+                                <option value="KHEDA" {% if employee.district == "KHEDA" %}selected{% endif %}>KHEDA</option>
+                                <option value="KUTCH" {% if employee.district == "KUTCH" %}selected{% endif %}>KUTCH</option>
+                                <option value="MAHISAGAR" {% if employee.district == "MAHISAGAR" %}selected{% endif %}>MAHISAGAR</option>
+                                <option value="MEHSANA" {% if employee.district == "MEHSANA" %}selected{% endif %}>MEHSANA</option>
+                                <option value="MORBI" {% if employee.district == "MORBI" %}selected{% endif %}>MORBI</option>
+                                <option value="NARMADA" {% if employee.district == "NARMADA" %}selected{% endif %}>NARMADA</option>
+                                <option value="NAVSARI" {% if employee.district == "NAVSARI" %}selected{% endif %}>NAVSARI</option>
+                                <option value="PANCHMAHAL" {% if employee.district == "PANCHMAHAL" %}selected{% endif %}>PANCHMAHAL</option>
+                                <option value="PATAN" {% if employee.district == "PATAN" %}selected{% endif %}>PATAN</option>
+                                <option value="PORBANDAR" {% if employee.district == "PORBANDAR" %}selected{% endif %}>PORBANDAR</option>
+                                <option value="RAJKOT" {% if employee.district == "RAJKOT" %}selected{% endif %}>RAJKOT</option>
+                                <option value="SABARKANTHA" {% if employee.district == "SABARKANTHA" %}selected{% endif %}>SABARKANTHA</option>
+                                <option value="SURAT" {% if employee.district == "SURAT" %}selected{% endif %}>SURAT</option>
+                                <option value="SURENDRANAGAR" {% if employee.district == "SURENDRANAGAR" %}selected{% endif %}>SURENDRANAGAR</option>
+                                <option value="TAPI" {% if employee.district == "TAPI" %}selected{% endif %}>TAPI</option>
+                                <option value="VADODARA" {% if employee.district == "VADODARA" %}selected{% endif %}>VADODARA</option>
+                                <option value="VALSAD" {% if employee.district == "VALSAD" %}selected{% endif %}>VALSAD</option>
+                                <option value="All Gujarat" {% if employee.district == "All Gujarat" %}selected{% endif %}>All Gujarat</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Coverage</label>
+                            <select name="coverage" class="form-control" required>
+                                <option value="" disabled selected>Select Coverage</option>
+                                <option value="AHMEDABAD">AHMEDABAD</option>
+                                <option value="AMRELI">AMRELI</option>
+                                <option value="ANAND">ANAND</option>
+                                <option value="ARVALLI">ARVALLI</option>
+                                <option value="BANASKANTHA">BANASKANTHA</option>
+                                <option value="BHARUCH">BHARUCH</option>
+                                <option value="BHAVNAGAR">BHAVNAGAR</option>
+                                <option value="BOTAD">BOTAD</option>
+                                <option value="CHHOTA UDAIPUR">CHHOTA UDAIPUR</option>
+                                <option value="DAHOD">DAHOD</option>
+                                <option value="DANG">DANG</option>
+                                <option value="DEVBHOOMI DWARKA">DEVBHOOMI DWARKA</option>
+                                <option value="GANDHINAGAR">GANDHINAGAR</option>
+                                <option value="GIR SOMNATH">GIR SOMNATH</option>
+                                <option value="JAMNAGAR">JAMNAGAR</option>
+                                <option value="JUNAGADH">JUNAGADH</option>
+                                <option value="KHEDA">KHEDA</option>
+                                <option value="KUTCH">KUTCH</option>
+                                <option value="MAHISAGAR">MAHISAGAR</option>
+                                <option value="MEHSANA">MEHSANA</option>
+                                <option value="MORBI">MORBI</option>
+                                <option value="NARMADA">NARMADA</option>
+                                <option value="NAVSARI">NAVSARI</option>
+                                <option value="PANCHMAHAL">PANCHMAHAL</option>
+                                <option value="PATAN">PATAN</option>
+                                <option value="PORBANDAR">PORBANDAR</option>
+                                <option value="RAJKOT">RAJKOT</option>
+                                <option value="SABARKANTHA">SABARKANTHA</option>
+                                <option value="SURAT">SURAT</option>
+                                <option value="SURENDRANAGAR">SURENDRANAGAR</option>
+                                <option value="TAPI">TAPI</option>
+                                <option value="VADODARA">VADODARA</option>
+                                <option value="VALSAD">VALSAD</option>
+                                <option value="All Gujarat">All Gujarat</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Blood Group</label>
+                            <input type="text" name="blood_group" value="{{ employee.blood_group }}" placeholder="Enter Blood Group" required class="form-control" pattern="^(A|B|AB|O)[+-]$">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Employee Department</label>
+                            <input type="text" name="department" value="{{ employee.empdept }}" placeholder="Department" required class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Employee Designation</label>
+                            <input type="text" name="designation" value="{{ employee.designation }}" placeholder="Designation" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Date of Birth</label>
+                            <input type="date" name="dob" placeholder="Enter Date of Birth" required class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Contact Number</label>
+                            <input type="text" name="contact" placeholder="Contact Number" value="{{ employee.contact }}" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Email ID</label>
+                            <input type="email" name="emailid" value="{{ employee.user.username }}" placeholder="Email ID" class="form-control" readonly>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Employee Joining Date [{{ employee.joiningdate }}]</label>
+                            <input type="date" name="jdate" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Expiration Date</label>
+                            <input type="date" name="expiry_date" value="{{ employee.user.expiry_date|date:"Y-m-d" }}" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Gender [{{ employee.gender }}]</label>
+                            <select name="gender" class="form-control">
+                                <option value="None" {% if employee.gender == 'None' %}selected{% endif %}>Select Gender</option>
+                                <option value="Male" {% if employee.gender == 'Male' %}selected{% endif %}>Male</option>
+                                <option value="Female" {% if employee.gender == 'Female' %}selected{% endif %}>Female</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" value="Submit" class="m-2 px-3 btn btn-primary">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% if error == "no" %}
+<script>
+    alert('Employee profile has been updated.');
+    window.location = "{% url 'edit_profile' employee.id %}";
+</script>
+{% endif %}
+{% if error == "yes" %}
+<script>
+    alert('Something went wrong, Try Again...');
+</script>
+{% endif %}
+{% endblock %}

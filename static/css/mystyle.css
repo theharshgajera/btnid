@@ -1,0 +1,18 @@
+
+
+.navbar-brand{
+  font-weight: bold;
+}
+
+.nav-link:hover{
+  color: #A74AD2 !important;
+  background-color:#A5BCF9;
+  border-radius:10px;
+}
+
+.navbar-brand:hover{
+  color: lightblue !important;
+
+}
+
+

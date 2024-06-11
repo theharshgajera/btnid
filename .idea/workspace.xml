@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="987b92df-c6a2-4db2-b022-69ae854824ee" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1yQ6RCo3Qn4uVPRP0pKaBVUel5T" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="F:/MoversAndPackersDjango/MoversAndPackers" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\EmployeeRecordMgmtDjango\EmployeeRecordMgmt\employee" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="987b92df-c6a2-4db2-b022-69ae854824ee" name="Default Changelist" comment="" />
+      <created>1632171453825</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1632171453825</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="374" y="156" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1632172734939">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="374" y="156" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1632172734939" />
+    <state x="413" y="66" key="FileChooserDialogImpl" timestamp="1634203626263">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="66" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1634203626263" />
+    <state x="309" y="152" key="com.intellij.ide.util.TipDialog" timestamp="1634203598824">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="309" y="152" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1634203598824" />
+  </component>
+</project>

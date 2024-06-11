@@ -1,0 +1,105 @@
+{% extends 'admin_base.html' %}
+{% block main %}
+<div class="card shadow">
+    <div class="card-body">
+        <h5 class="p-2" style="border-bottom: 2px solid orange;">Employee Details</h5>
+        <div class="container-fluid">
+            <a href="{% url 'export_employees_csv' %}" class="btn btn-success mb-3">Download CSV</a>
+            <div class="table-responsive">
+                <table class="table table-bordered table-sm" id="example">
+                    <thead>
+                        <tr>
+                            <th>S No.</th>
+                            <th>Emp_Code</th>
+                            <th>Generated_Code</th>
+                            <th>FirstName</th>
+                            <th>LastName</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>Date of Birth</th>
+
+                            <th>Contact</th>
+                            <th>JoiningDate</th>
+                            <th>Expiry Date</th>
+
+                            <th>Department</th>
+                            <th>Designation</th>
+                            <th>Tehsil</th>
+                            <th>District</th>
+                            <th>Coverage</th>
+
+                            <th>Blood Group</th>
+                            <th>Aadhaar Card</th>
+                            <th>PAN Card</th>
+                            <th>Light Bill</th>
+                            <th>Photo</th>
+                            <th>Signed Contract</th>
+                            <th>Documents</th>
+                            <th>Contracts</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in employees %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ i.empcode }}</td>
+                            <td>{{ i.custom_employee_code }}</td>
+                            <td>{{ i.user.first_name }}</td>
+                            <td>{{ i.user.last_name }}</td>
+                            <td>{{ i.user.username }}</td>
+                            <td>{{ i.address }}</td>
+                            <td>{{ i.dob }}</td>
+                            <td>{{ i.contact }}</td>
+                            <td>{{ i.joiningdate }}</td>
+                            <td>{{ i.expiry_date }}</td>
+
+                            <td>{{ i.empdept }}</td>
+                            <td>{{ i.designation }}</td>
+                            <td>{{ i.tehsil }}</td>
+                            <td>{{ i.district }}</td>
+                            <td>{{ i.coverage }}</td>
+
+                            <td>{{ i.blood_group }}</td>
+                            <td><a href="{% url 'download_aadhaar_card' i.user.id %}" class="btn btn-link">Download</a></td>
+                            <td><a href="{% url 'download_pan_card' i.user.id %}" class="btn btn-link">Download</a></td>
+                            <td><a href="{% url 'download_light_bill' i.user.id %}" class="btn btn-link">Download</a></td>
+                            <td><a href="{% url 'download_photo' i.user.id %}" class="btn btn-link">Download</a></td>
+                            <td><a href="{% url 'download_contract' i.user.id %}" class="btn btn-link">Download</a></td>
+                            <td>
+                                <a href="{% url 'view_document' 'aadhaar_card' i.user.id %}" target="_blank">View Aadhaar Card</a>
+                                <br>
+                                <a href="{% url 'view_document' 'pan_card' i.user.id %}" target="_blank">View PAN Card</a>
+                                <br>
+                                <a href="{% url 'view_document' 'light_bill' i.user.id %}" target="_blank">View Light Bill</a>
+                                <br>
+                                <a href="{% url 'view_document' 'photo' i.user.id %}" target="_blank">View Photo</a>
+                            </td>
+                            <td>
+                                <a href="{% url 'view_document' 'contract' i.user.id %}" target="_blank">View Contract</a>
+                            </td>
+                            <td>
+                                <a href="{% url 'edit_profile' i.id %}" class="text-primary">Edit Profile Detail</a>
+                                <br><a href="{% url 'edit_education' i.user.id %}" class="text-success">Edit Education Detail</a>
+                                <br><a href="{% url 'edit_experience' i.user.id %}" class="text-secondary">Edit Experience Detail</a>
+                                <br><a href="{% url 'renew_expiry_date' i.id %}" class="btn btn-warning btn-sm mt-2">Renew</a>
+
+                                <br><a href="{% url 'delete_employee' i.user.id %}" class="text-danger" onclick="return confirm('Are You Sure?')">Delete</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+

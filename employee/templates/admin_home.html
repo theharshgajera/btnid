@@ -1,0 +1,68 @@
+{% extends 'admin_base.html' %}
+{% block main %}
+<h4 class="p-2 text-danger" style="border-bottom: 2px solid green;">Admin Dashboard</h4>
+<div class="row text-center">
+    <div class="col-sm-12 p-2">
+        <div class="card shadow">
+            <div class="card-body">
+                <h4 class="text-success">Welcome Back To ERMS</h4>
+                <h5 class="text-capitalize">Admin</h5>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <canvas id="statusPieChart" style="max-width: 300px; max-height: 300px;"></canvas>
+
+    </div>
+    <div class="col-md-6">
+        <canvas id="expiryBarChart"></canvas>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Pie chart for employee status
+    var ctxPie = document.getElementById('statusPieChart').getContext('2d');
+    var statusPieChart = new Chart(ctxPie, {
+        type: 'pie',
+        data: {
+            labels: ['Pending', 'Document Pending', 'Document Verified', 'Contract Pending', 'Finalized'],
+            datasets: [{
+                data: [
+                    {{ employee_counts.PENDING }},
+                    {{ employee_counts.DOC_PENDING }},
+                    {{ employee_counts.DOC_VERIFIED }},
+                    {{ employee_counts.CONTRACT_PENDING }},
+                    {{ employee_counts.FINALIZED }}
+                ],
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF']
+            }]
+        }
+    });
+
+    // Bar chart for employee expiry by month
+    var ctxBar = document.getElementById('expiryBarChart').getContext('2d');
+    var expiryBarChart = new Chart(ctxBar, {
+        type: 'bar',
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            datasets: [{
+                label: 'Number of Employees Expiring',
+                data: {{ expiration_counts }},
+                backgroundColor: '#36A2EB'
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+{% endblock %}

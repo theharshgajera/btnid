@@ -1,0 +1,54 @@
+{% extends 'admin_base.html' %}
+{% block main %}
+<div class="card shadow">
+    <div class="card-body">
+        <h5 class="p-2" style="border-bottom: 2px solid orange;">Pending Document Verifications</h5>
+        <div class="container-fluid">
+            <div class="table-responsive">
+
+            <table class="table table-bordered table-sm" id="example">
+                <thead>
+                    <tr>
+                        <th>S No.</th>
+                        <th>Employee Name</th>
+                        <th>Employee Code</th>
+                        <th>Adress</td>
+                        <th>Department</th>
+                        <th>Designation</th>
+                        <th>Contact</th>
+                        <th>Joining Date</th>
+                        <th>Aadhaar Card</th>
+                        <th>PAN Card</th>
+                        <th>Light Bill</th>
+                        <th>Photo</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for employee in employees %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ employee.user.first_name }} {{ employee.user.last_name }}</td>
+                        <td>{{ employee.empcode }}</td>
+                        <td>{{ employee.adress  }}</td>
+                        <td>{{ employee.empdept }}</td>
+                        <td>{{ employee.designation }}</td>
+                        <td>{{ employee.contact }}</td>
+                        <td>{{ employee.joiningdate }}</td>
+                        <td><a href="{% url 'download_aadhaar_card' employee.user.id %}" target="_blank">Download Aadhaar Card</a></td>
+                        <td><a href="{% url 'download_pan_card' employee.user.id %}" target="_blank">Download PAN Card</a></td>
+                        <td><a href="{% url 'download_light_bill' employee.user.id %}" target="_blank">Download Light Bill</a></td>
+                        <td><a href="{% url 'download_photo' employee.user.id %}" target="_blank">Download Photo</a></td>
+                        <td>
+                            <a href="{% url 'verify_document' employee.user.id %}" class="btn btn-success btn-sm">Verify</a>
+                            <a href="{% url 'reject_document' employee.user.id %}" class="btn btn-danger btn-sm">Reject</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+</div>
+{% endblock %}

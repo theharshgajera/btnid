@@ -1,0 +1,11 @@
+{% extends 'admin_base.html' %}
+{% block main %}
+<div class="card shadow">
+    <div class="card-body">
+        <h5 class="p-2" style="border-bottom: 2px solid orange;">Download Finalized Employee Documents</h5>
+        <div class="container-fluid">
+            <a href="{% url 'download_zip' %}" class="btn btn-success mb-3">Download Zip</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

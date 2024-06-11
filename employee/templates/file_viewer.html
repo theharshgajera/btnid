@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document Viewer</title>
+</head>
+<body>
+    {% if is_image %}
+        <img src="{{ file_url }}" alt="Document" width="100%" height="600">
+    {% else %}
+        <iframe src="{{ file_url }}" width="100%" height="600" style="border:none;"></iframe>
+    {% endif %}
+</body>
+</html>
